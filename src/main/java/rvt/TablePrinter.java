@@ -9,8 +9,9 @@ public class TablePrinter {
             return;
         }
 
-        String format = "| %-12s | %-12s | %-20s | %-12s | %-20s |%n";
-        String separator = "+--------------+--------------+----------------------+--------------+----------------------+%n";
+        String format = "| %-15s | %-15s | %-32s | %-15s | %-20s |%n";
+        
+        String separator = "+-----------------+-----------------+----------------------------------+-----------------+----------------------+%n";
 
         System.out.printf(separator);
         System.out.printf(format, "Vārds", "Uzvārds", "E-pasts", "P.Kods", "Reģ. Datums");
