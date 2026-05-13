@@ -1,44 +1,40 @@
 package rvt;
 
-import javax.swing.*;
-import java.awt.*;
+class Book1 {
+    String name;
+    String author;
+    int year;
 
-public class Main {
-    public static void main(String[] args) {
-        JFrame frame = new JFrame("Simple Drawing");
-        DrawingCanvas canvas = new DrawingCanvas();
+    public void registerBook(String name, String author, int year) {
+        this.name = name;
+        this.author = author;
+        this.year = year;
+    }
 
-        frame.add(canvas);
-        frame.setSize(600, 600);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
+    public void callBook() {
+        System.out.println("| " + this.name + " | " + this.author + " | " + this.year + " |");
     }
 }
 
-class DrawingCanvas extends JPanel {
-    @Override
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        
-        // Cast to Graphics2D for better control
-        Graphics2D g2 = (Graphics2D) g;
+class Book2 extends Book1 {
+    
+    Book2(String name, String author, int year) {
+        this.name = name;
+        this.author = author;
+        this.year = year;
+    }
+}
 
-        // Draw the house body
-        g2.drawRect(200, 200, 200, 200);
+public class Main {
+    public static void main(String[] args) {
+        Book1 joelBook = new Book1();
+        joelBook.registerBook("Lord of the rings", "L.K.Arghu", 1939);
+
+        joelBook.callBook();
 
 
-        // Daw a roof
-        g2.drawLine(150, 200, 300, 150);
+        Book2 argutBook = new Book2("Harry Potter", "J.K.Rowlin", 1689);
 
-        g2.drawLine(300, 150, 450, 200);
-
-        g2.drawLine(150, 200, 450, 200);
-
-        // Draw a door
-        g2.drawRect(275, 300, 50, 100);
-
-        // Draw a door handle
-        g2.drawOval(310, 350, 10, 10);
+        argutBook.callBook();
     }
 }
